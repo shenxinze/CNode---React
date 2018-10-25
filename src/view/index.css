@@ -1,4 +1,39 @@
+.wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#logo{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+}
+.headerDivider{
+  height: 44px;
+  margin: 10px 0;
+  float: left;
+}
 .pageWrap{
   min-height: 100vh;
-  background-color: #f60;
+}
+#nav{
+  float: left;
+  background: none;
+  border: none;
+  line-height: 62px;
+  margin-left: 30px;
+}
+#nav a{
+  color: #fff;
+}
+#nav .ant-menu-item-selected a{
+  color: #1890ff;
+}
+#nav .ant-menu-item-active a:hover{
+  color: #1890ff;
+}
+.xsNav{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
 }
