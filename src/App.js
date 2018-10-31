@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import {Main} from 'antd';
 import RouterIndex from './router/index';
 import MainHeader from './view/main-header'
 import MainFooter from './view/main-footer'
-import Index from './view/index'
 import './view/index.css'
 
 class App extends Component {
@@ -12,7 +10,7 @@ class App extends Component {
       <div className="pageWrap">
         <MainHeader />
         <main className="main">
-          <Index />
+          <RouterIndex />
         </main>
         <MainFooter />  
       </div>
