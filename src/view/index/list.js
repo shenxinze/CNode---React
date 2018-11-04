@@ -21,7 +21,7 @@ export default class IndexList extends Component {
               description={ 
                 <p>
                   <Link to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>
-                  发表于：{item.create_at.split('T')[0]}
+                  <span style={{marginLeft: '5px'}}>发表于：{item.create_at.split('T')[0]}</span>
                 </p>
               }
             />
