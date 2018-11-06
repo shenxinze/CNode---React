@@ -1,23 +1,51 @@
 import React,{Component} from 'react';
 import TxtDetails from './txtDetails';
 import ReplayList from './replayList';
-import data from './data';
+import {connect} from 'react-redux';
+import axios from 'axios';
 
-export default class Details extends Component {
+class Details extends Component {
+  constructor(props){
+    super(props);
+    let id = this.props.match.params.id;
+    this.getData(id);
+  }
+  getData(id){
+    this.props.dispatch(dispatch=>{
+      dispatch({
+        type: 'DETAILS_UPDATE'
+      })
+      axios.get(`https://cnodejs.org/api/v1/topic/${id}`)
+      .then(res=>{
+        dispatch({
+          type: 'DETAILS_UPDATE_SUCC',
+          data: res.data
+        })
+      })
+      .catch(err=>{
+        dispatch({
+          type: 'DETAILS_UPDATE_ERROR',
+          data: err
+        })
+      })
+    })
+  }
   render(){
-    console.log(data)
+    let {loading,data} = this.props;
     return (
       <div className="wrap">
         <TxtDetails
-          loading={false}
-          data={data.data}
+          loading={loading}
+          data={data}
         />
         <ReplayList
-          loading={false}
-          replies={data.data.replies}
-          replyCount={data.data.reply_count}
+          loading={loading}
+          replies={data.replies}
+          replyCount={data.reply_count}
         />
       </div>
     )
   }
 }
+
+export default connect(state=>state.details)(Details)
