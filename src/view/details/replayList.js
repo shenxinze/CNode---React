@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 export default class ReplayList extends Component {
   render(){
     let {loading,replyCount,replies} = this.props;
-    console.log(replies)
     return (
       <Card
         loading={loading}

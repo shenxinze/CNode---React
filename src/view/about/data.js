@@ -24,8 +24,8 @@ let linkData = `<a href="https://www.huoban.com/" target="_blank">
           <a href="http://www.jiguang.cn/" target="_blank">
             <img src="//dn-cnode.qbox.me/FijGJbij9GObh5AXw-Vyu5LGn08a">
           </a>
-          <a href="http://segmentfault.com/" target="_blank">
-            <img src="https://static.segmentfault.com/v-5bd68eac/global/img/logo-b.svg">
+          <a href="https://www.aliyun.com/product/nodejs?ref=cnode" target="_blank">
+            <img src="https://static.cnodejs.org/FpMZk31PDyxkC8yStmMQL4XroaGD">
           </a>
           <a href="http://ionichina.com/" target="_blank">
             <img src="http://r.ionichina.com/public/images/ionic-logo-white.svg" style="background: #3374de;">

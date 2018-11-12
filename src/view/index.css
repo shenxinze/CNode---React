@@ -83,7 +83,7 @@ a{
   text-align: center;
 }
 .indexList{
-  padding: 0 10px;
+  padding: 0 10px 24px;
 }
 .indexList p{
   margin: 0; 
@@ -151,4 +151,7 @@ a{
   .userList h4{
     display: block;
   }
+}
+.color{
+  color: #08c;
 }

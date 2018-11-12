@@ -13,7 +13,7 @@ export default class TxtDetails extends Component {
       >
         <TxtTag data={data} />
         <Avatar src={data.author.avatar_url}></Avatar>
-        <Link to={data.author.loginname} style={{margin: '0 10px'}}>{data.author.loginname}</Link>
+        <Link to={"/user/"+data.author.loginname} style={{margin: '0 10px'}}>{data.author.loginname}</Link>
         发表于 {data.create_at.split('T')[0]}
       </div>
     </div>)

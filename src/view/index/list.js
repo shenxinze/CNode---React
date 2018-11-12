@@ -11,14 +11,14 @@ class IndexList extends Component {
     this.state = {
       page: 1
     }
-    this.getData(this.props.tab);
+    this.getData(this.props.tab,this.state.page);
   }
-  getData(tab){
+  getData(tab,page){
     this.props.dispatch(dispatch=>{
       dispatch({
         type: 'LIST_UPDATA'
       });
-      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.props.page}&limit=15`)
+      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=10`)
       .then(res=>{
         dispatch({
           type: 'LIST_UPDATA_SUCC',
@@ -35,18 +35,32 @@ class IndexList extends Component {
     })
   }
   shouldComponentUpdate(nextProps,nextState){
-    if(this.props.tab != nextProps.tab){
-      this.getData(nextProps.tab);
+    if(this.state.page !== nextState.page){
+      this.getData(nextProps.tab,nextState.page);
+      return false;
+    }
+    if(this.props.tab !== nextProps.tab){
+      this.getData(nextProps.tab,1);
+      this.setState({page: 1})
       return false;
     }
     return true;
   }
   render(){
     let {loading,data} = this.props;
+    let pagination = {
+      current: this.state.page,
+      pageSize: 10,
+      total: 1000,
+      onChange: (current)=>{
+        this.setState({page: current});
+      }
+    }
     return (
       <List
         loading={loading}
         dataSource={data}
+        pagination={loading?false:pagination}
         renderItem={item => (
           <List.Item
             actions={['回复：' + item.reply_count,'访问：' + item.visit_count]}
